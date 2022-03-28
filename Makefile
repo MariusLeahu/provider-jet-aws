@@ -43,7 +43,9 @@ GO111MODULE = on
 # ====================================================================================
 # Setup Images
 
-DOCKER_REGISTRY := crossplane
+#DOCKER_REGISTRY := crossplane
+# TEMPORARY CHANGE OF DOCKER REGISTRY
+DOCKER_REGISTRY := mleahu
 IMAGES = provider-jet-aws provider-jet-aws-controller
 -include build/makelib/image.mk
 
