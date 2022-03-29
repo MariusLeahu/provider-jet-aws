@@ -105,6 +105,7 @@ import (
 	rule "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53resolver/rule"
 	ruleassociation "github.com/crossplane-contrib/provider-jet-aws/internal/controller/route53resolver/ruleassociation"
 	bucket "github.com/crossplane-contrib/provider-jet-aws/internal/controller/s3/bucket"
+	provisionedproduct "github.com/crossplane-contrib/provider-jet-aws/internal/controller/servicecatalog/provisionedproduct"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
@@ -191,6 +192,7 @@ func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter, ps terr
 		rule.Setup,
 		ruleassociation.Setup,
 		bucket.Setup,
+		provisionedproduct.Setup,
 	} {
 		if err := setup(mgr, l, wl, ps, ws, cfg, concurrency); err != nil {
 			return err
