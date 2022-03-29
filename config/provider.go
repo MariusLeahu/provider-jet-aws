@@ -35,6 +35,7 @@ import (
 	"github.com/crossplane-contrib/provider-jet-aws/config/rds"
 	"github.com/crossplane-contrib/provider-jet-aws/config/route53"
 	"github.com/crossplane-contrib/provider-jet-aws/config/s3"
+	"github.com/crossplane-contrib/provider-jet-aws/config/servicecatalog"
 )
 
 // IncludedResources lists all resource patterns included in small set release.
@@ -129,6 +130,9 @@ var IncludedResources = []string{
 
 	// Route53
 	"aws_route53_.*",
+
+	// Service Catalog
+	"aws_servicecatalog_provisioned_product$",
 }
 
 var skipList = []string{
@@ -179,6 +183,7 @@ func GetProvider(tfProvider *schema.Provider) *tjconfig.Provider {
 		rds.Configure,
 		s3.Configure,
 		route53.Configure,
+		servicecatalog.Configure,
 	} {
 		configure(pc)
 	}
